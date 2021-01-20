@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Dlg10to8 extends DlgType {
 
@@ -31,6 +33,11 @@ public class Dlg10to8 extends DlgType {
 	 * Create the dialog.
 	 */
 	public Dlg10to8() {
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			converter();
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		setTitle("Conversion from 10x to 8x system");
 		textField_1.setBounds(12, 147, 408, 45);
@@ -52,6 +59,22 @@ public class Dlg10to8 extends DlgType {
 			lblYourResultin.setBounds(12, 126, 408, 23);
 			contentPanel.add(lblYourResultin);
 		}
+	}
+
+	@Override
+	public String converter() {
+		int num = Integer.valueOf(textField.getText());
+		String string_num = "";
+		while (num > 0) {
+			int bit = num %8;
+			num /= 8;
+			string_num = String.valueOf(bit) + string_num;
+		}
+		if (string_num == "")
+			textField_1.setText("0");
+		else 
+			textField_1.setText(string_num);
+		return string_num;
 	}
 
 }

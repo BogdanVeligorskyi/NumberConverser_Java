@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Dlg10to16 extends DlgType {
 
@@ -31,6 +33,11 @@ public class Dlg10to16 extends DlgType {
 	 * Create the dialog.
 	 */
 	public Dlg10to16() {
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				converter();
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		setTitle("Conversion from 10x to 16x system");
 		textField_1.setBounds(12, 147, 408, 45);
@@ -52,17 +59,37 @@ public class Dlg10to16 extends DlgType {
 			lblYourResultin.setBounds(12, 126, 408, 23);
 			contentPanel.add(lblYourResultin);
 		}
-		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
+	}
+
+	@Override
+	public String converter() {
+		int num = Integer.valueOf(textField.getText());
+		String string_num = "";
+		while (num > 0) {
+			int bit = num % 16;
+			String bit_string = String.valueOf(bit);
+			num /= 16;
+			switch (bit) {
+				case 10: bit_string = "A";
+				break;
+				case 11: bit_string = "B";
+				break;
+				case 12: bit_string = "C";
+				break;
+				case 13: bit_string = "D";
+				break;
+				case 14: bit_string = "E";
+				break;
+				case 15: bit_string = "F";
+				break;
 			}
+			string_num = bit_string + string_num;
 		}
+		if (string_num == "")
+			textField_1.setText("0");
+		else 
+			textField_1.setText(string_num);
+		return string_num;
 	}
 
 }

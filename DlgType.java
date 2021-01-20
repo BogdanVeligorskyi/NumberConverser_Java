@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class DlgType extends JDialog {
+public abstract class DlgType extends JDialog {
 
 	protected final JPanel contentPanel = new JPanel();
 	protected JTextField textField;
@@ -21,7 +21,7 @@ public class DlgType extends JDialog {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		try {
 			DlgType dialog = new DlgType();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -29,7 +29,7 @@ public class DlgType extends JDialog {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	/**
 	 * Create the dialog.
@@ -60,11 +60,13 @@ public class DlgType extends JDialog {
 			btnOk = new JButton("OK");
 			btnOk.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					
+					setVisible(false);
 				}
 			});
 			btnOk.setBounds(358, 215, 62, 25);
 			contentPanel.add(btnOk);
 		}
 	}
+	
+	public abstract String converter();
 }

@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Dlg2to10 extends DlgType {
 
@@ -31,6 +33,11 @@ public class Dlg2to10 extends DlgType {
 	 * Create the dialog.
 	 */
 	public Dlg2to10() {
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			converter();
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
 		setTitle("Conversion from 2x to 10x system");
 		textField_1.setBounds(12, 147, 408, 45);
@@ -52,17 +59,23 @@ public class Dlg2to10 extends DlgType {
 			lblYourResultin.setBounds(12, 126, 408, 23);
 			contentPanel.add(lblYourResultin);
 		}
-		{
-			JPanel buttonPane = new JPanel();
-			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
-			getContentPane().add(buttonPane, BorderLayout.SOUTH);
-			{
-				JButton okButton = new JButton("OK");
-				okButton.setActionCommand("OK");
-				buttonPane.add(okButton);
-				getRootPane().setDefaultButton(okButton);
-			}
+	}
+
+	@Override
+	public String converter() {
+		String num_string = textField.getText();
+		String [] arr_string = num_string.split("");
+		Integer[] arr_num = new Integer[num_string.length()];
+		for (int i = 0; i < arr_num.length; i++) {
+			arr_num[i] = Integer.parseInt(arr_string[i]);
 		}
+		int num = 0;
+		for (int j = 0; j < arr_num.length; j++) {
+			int product = (int) (arr_num[j] * Math.pow(2, arr_num.length -j -1));
+			num = num + product;
+		}
+		textField_1.setText(String.valueOf(num));
+		return String.valueOf(num);
 	}
 
 }

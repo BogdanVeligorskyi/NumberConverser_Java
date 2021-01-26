@@ -70,11 +70,29 @@ public class Dlg10to8 extends DlgType {
 			num /= 8;
 			string_num = String.valueOf(bit) + string_num;
 		}
-		if (string_num == "")
-			textField_1.setText("0");
-		else 
+		if (string_num.equals("") == false)
 			textField_1.setText(string_num);
+		else if (Integer.valueOf(textField.getText()) < 0) {
+			string_num = converterMinus(num);
+			textField_1.setText(string_num);
+		} else
+			textField_1.setText("0");
 		return string_num;
+	}
+
+	private String converterMinus(int num) {
+		String string_num = "";
+		double log = (Math.log10(Math.abs(num)) / Math.log10(8.0));
+		double n = Math.ceil(log);
+		int num10th = (int) (Math.pow(8.0, n) - Math.abs(num));
+		while (num10th > 0) {
+			int bit = num10th % 8;
+			String bit_string = String.valueOf(bit);
+			num10th /= 8;
+			string_num = bit_string + string_num;
+		}
+		string_num = "7" + string_num;
+		return string_num;	
 	}
 
 }

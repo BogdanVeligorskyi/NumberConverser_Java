@@ -85,11 +85,43 @@ public class Dlg10to16 extends DlgType {
 			}
 			string_num = bit_string + string_num;
 		}
-		if (string_num == "")
-			textField_1.setText("0");
-		else 
+		if (string_num.equals("") == false)
 			textField_1.setText(string_num);
+		else if (Integer.valueOf(textField.getText()) < 0) {
+			string_num = converterMinus(num);
+			textField_1.setText(string_num);
+		} else
+			textField_1.setText("0");
 		return string_num;
+	}
+
+	private String converterMinus(int num) {
+		String string_num = "";
+		double log = (Math.log10(Math.abs(num)) / Math.log10(16.0));
+		double n = Math.ceil(log);
+		int num10th = (int) (Math.pow(16.0, n) - Math.abs(num));
+		while (num10th > 0) {
+			int bit = num10th % 16;
+			String bit_string = String.valueOf(bit);
+			num10th /= 16;
+			switch (bit) {
+				case 10: bit_string = "A";
+				break;
+				case 11: bit_string = "B";
+				break;
+				case 12: bit_string = "C";
+				break;
+				case 13: bit_string = "D";
+				break;
+				case 14: bit_string = "E";
+				break;
+				case 15: bit_string = "F";
+				break;
+			}
+			string_num = bit_string + string_num;
+		}
+		string_num = "F" + string_num;
+		return string_num;	
 	}
 
 }

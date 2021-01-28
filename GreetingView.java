@@ -15,19 +15,15 @@ import java.awt.Color;
 // class that shows greeting screen to user
 public class GreetingView {
 
-	private JFrame frmV;
+	private JFrame frame;
 	
-
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					GreetingView window = new GreetingView();
-					window.frmV.setVisible(true);
+					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,45 +31,45 @@ public class GreetingView {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public GreetingView() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
-		frmV = new JFrame();
-		frmV.setTitle("Calculator");
-		frmV.getContentPane().setForeground(Color.ORANGE);
-		frmV.setBounds(100, 100, 450, 300);
-		frmV.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmV.getContentPane().setLayout(null);
+		frame = new JFrame();
+		frame.setTitle("Number converter");
+		frame.getContentPane().setBackground(Color.ORANGE);
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Transforming number from one system to another");
-		lblNewLabel.setForeground(Color.BLUE);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel.setBounds(12, 38, 408, 57);
-		frmV.getContentPane().add(lblNewLabel);
+		JLabel lblMain = new JLabel("Number converter from one system to another");
+		lblMain.setForeground(Color.BLUE);
+		lblMain.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMain.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblMain.setBounds(12, 38, 408, 57);
+		frame.getContentPane().add(lblMain);
 		
-		JButton btnNewButton = new JButton("Start");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnStart = new JButton("Start");
+		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			MainView mainView = new MainView();
-			frmV.setVisible(false);
-			mainView.getFrame().setVisible(true);
+				MainView mainView = new MainView();
+				frame.setVisible(false);
+				mainView.getFrame().setVisible(true);
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnNewButton.setBounds(151, 121, 137, 25);
-		frmV.getContentPane().add(btnNewButton);
+		btnStart.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnStart.setBounds(151, 121, 137, 25);
+		frame.getContentPane().add(btnStart);
+		
+		JLabel lblAuthor = new JLabel("2021. Bogdan Veligorskyi");
+		lblAuthor.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAuthor.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblAuthor.setBounds(12, 184, 408, 33);
+		frame.getContentPane().add(lblAuthor);
 	}
 	
 	public JFrame getFrame() {
-		return frmV;
+		return frame;
 	}
 }

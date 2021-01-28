@@ -10,51 +10,38 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public abstract class DlgType extends JDialog {
 
 	protected final JPanel contentPanel = new JPanel();
-	protected JTextField textField;
-	protected JTextField textField_1;
-	protected JButton btnNewButton = new JButton("Calculate");
+	protected JTextField textFieldInput;
+	protected JTextField textFieldOutput;
+	protected JButton btnConvert = new JButton("Convert");
 	protected JButton btnOk;
-	/**
-	 * Launch the application.
-	 */
-	/*public static void main(String[] args) {
-		try {
-			DlgType dialog = new DlgType();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}*/
-
-	/**
-	 * Create the dialog.
-	 */
+	
 	public DlgType() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setBackground(Color.ORANGE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			btnNewButton.setBounds(168, 90, 97, 25);
-			contentPanel.add(btnNewButton);
+			btnConvert.setBounds(168, 90, 97, 25);
+			contentPanel.add(btnConvert);
 		}
 		{
-			textField = new JTextField();
-			textField.setBounds(12, 24, 408, 45);
-			contentPanel.add(textField);
-			textField.setColumns(10);
+			textFieldInput = new JTextField();
+			textFieldInput.setBounds(12, 24, 408, 45);
+			contentPanel.add(textFieldInput);
+			textFieldInput.setColumns(10);
 		}
 		{
-			textField_1 = new JTextField();
-			textField_1.setColumns(10);
-			textField_1.setBounds(12, 144, 408, 45);
-			contentPanel.add(textField_1);
+			textFieldOutput = new JTextField();
+			textFieldOutput.setColumns(10);
+			textFieldOutput.setBounds(12, 144, 408, 45);
+			contentPanel.add(textFieldOutput);
 		}
 		{
 			btnOk = new JButton("OK");

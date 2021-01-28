@@ -33,37 +33,37 @@ public class Dlg2to10 extends DlgType {
 	 * Create the dialog.
 	 */
 	public Dlg2to10() {
-		btnNewButton.addActionListener(new ActionListener() {
+		btnConvert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			converter();
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
-		setTitle("Conversion from 2x to 10x system");
-		textField_1.setBounds(12, 147, 408, 45);
-		textField.setBounds(12, 23, 408, 45);
+		btnConvert.setFont(new Font("Tahoma", Font.BOLD, 13));
+		setTitle("Converting from 2x to 10x system");
+		textFieldOutput.setBounds(12, 147, 408, 45);
+		textFieldInput.setBounds(12, 23, 408, 45);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblNewLabel = new JLabel("Enter a number (in 2x system)");
-			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblNewLabel.setBounds(12, 0, 408, 23);
-			contentPanel.add(lblNewLabel);
+			JLabel lblInput = new JLabel("Enter a number (in 2x system)");
+			lblInput.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblInput.setBounds(12, 0, 408, 23);
+			contentPanel.add(lblInput);
 		}
 		{
-			JLabel lblYourResultin = new JLabel("Your result (in 10x system)");
-			lblYourResultin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblYourResultin.setBounds(12, 126, 408, 23);
-			contentPanel.add(lblYourResultin);
+			JLabel lblOutput = new JLabel("Your result (in 10x system)");
+			lblOutput.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblOutput.setBounds(12, 126, 408, 23);
+			contentPanel.add(lblOutput);
 		}
 	}
 
 	@Override
 	public String converter() {
-		String num_string = textField.getText();
+		String num_string = textFieldInput.getText();
 		String [] arr_string = num_string.split("");
 		Integer[] arr_num = new Integer[num_string.length()];
 		for (int i = 0; i < arr_num.length; i++) {
@@ -74,7 +74,7 @@ public class Dlg2to10 extends DlgType {
 			int product = (int) (arr_num[j] * Math.pow(2, arr_num.length -j -1));
 			num = num + product;
 		}
-		textField_1.setText(String.valueOf(num));
+		textFieldOutput.setText(String.valueOf(num));
 		return String.valueOf(num);
 	}
 

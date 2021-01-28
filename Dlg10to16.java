@@ -33,37 +33,37 @@ public class Dlg10to16 extends DlgType {
 	 * Create the dialog.
 	 */
 	public Dlg10to16() {
-		btnNewButton.addActionListener(new ActionListener() {
+		btnConvert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				converter();
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
-		setTitle("Conversion from 10x to 16x system");
-		textField_1.setBounds(12, 147, 408, 45);
-		textField.setBounds(12, 23, 408, 45);
+		btnConvert.setFont(new Font("Tahoma", Font.BOLD, 13));
+		setTitle("Converting from 10x to 16x system");
+		textFieldOutput.setBounds(12, 147, 408, 45);
+		textFieldInput.setBounds(12, 23, 408, 45);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblNewLabel = new JLabel("Enter a number (in 10x system)");
-			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblNewLabel.setBounds(12, 0, 408, 23);
-			contentPanel.add(lblNewLabel);
+			JLabel lblInput = new JLabel("Enter a number (in 10x system)");
+			lblInput.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblInput.setBounds(12, 0, 408, 23);
+			contentPanel.add(lblInput);
 		}
 		{
-			JLabel lblYourResultin = new JLabel("Your result (in 16x system)");
-			lblYourResultin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblYourResultin.setBounds(12, 126, 408, 23);
-			contentPanel.add(lblYourResultin);
+			JLabel lblOutput = new JLabel("Your result (in 16x system)");
+			lblOutput.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblOutput.setBounds(12, 126, 408, 23);
+			contentPanel.add(lblOutput);
 		}
 	}
 
 	@Override
 	public String converter() {
-		int num = Integer.valueOf(textField.getText());
+		int num = Integer.valueOf(textFieldInput.getText());
 		String string_num = "";
 		while (num > 0) {
 			int bit = num % 16;
@@ -86,12 +86,12 @@ public class Dlg10to16 extends DlgType {
 			string_num = bit_string + string_num;
 		}
 		if (string_num.equals("") == false)
-			textField_1.setText(string_num);
-		else if (Integer.valueOf(textField.getText()) < 0) {
+			textFieldOutput.setText(string_num);
+		else if (Integer.valueOf(textFieldInput.getText()) < 0) {
 			string_num = converterMinus(num);
-			textField_1.setText(string_num);
+			textFieldOutput.setText(string_num);
 		} else
-			textField_1.setText("0");
+			textFieldOutput.setText("0");
 		return string_num;
 	}
 

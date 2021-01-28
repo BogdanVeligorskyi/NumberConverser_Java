@@ -16,9 +16,6 @@ public class Dlg10to2 extends DlgType {
 
 	private final JPanel contentPanel = super.contentPanel;
 	
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		try {
 			Dlg10to2 dialog = new Dlg10to2();
@@ -29,55 +26,52 @@ public class Dlg10to2 extends DlgType {
 		}
 	}
 
-	/**
-	 * Create the dialog.
-	 */
 	public Dlg10to2() {
-		btnNewButton.addActionListener(new ActionListener() {
+		btnConvert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			converter();
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 13));
-		setTitle("Conversion from 10x to 2x system");
-		textField_1.setBounds(12, 147, 408, 45);
-		textField.setBounds(12, 23, 408, 45);
+		btnConvert.setFont(new Font("Tahoma", Font.BOLD, 13));
+		setTitle("Converting from 10x to 2x system");
+		textFieldOutput.setBounds(12, 147, 408, 45);
+		textFieldInput.setBounds(12, 23, 408, 45);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lblNewLabel = new JLabel("Enter a number (in 10x system)");
-			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblNewLabel.setBounds(12, 0, 408, 23);
-			contentPanel.add(lblNewLabel);
+			JLabel lblInput = new JLabel("Enter a number (in 10x system)");
+			lblInput.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblInput.setBounds(12, 0, 408, 23);
+			contentPanel.add(lblInput);
 		}
 		{
-			JLabel lblYourResultin = new JLabel("Your result (in 2x system)");
-			lblYourResultin.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lblYourResultin.setBounds(12, 126, 408, 23);
-			contentPanel.add(lblYourResultin);
+			JLabel lblOutput = new JLabel("Your result (in 2x system)");
+			lblOutput.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lblOutput.setBounds(12, 126, 408, 23);
+			contentPanel.add(lblOutput);
 		}
 	}
 
 	@Override
 	public String converter() {
-		int num = Integer.valueOf(textField.getText());
+		int num = Integer.valueOf(textFieldInput.getText());
 		String string_num = "";
 		while (num > 0) {
 			int bit = num %2;
 			num /= 2;
 			string_num = String.valueOf(bit) + string_num;
 		}
-		if (Integer.valueOf(textField.getText()) < 0) {
+		if (Integer.valueOf(textFieldInput.getText()) < 0) {
 			string_num = converterMinus(num);
-			textField_1.setText(string_num);
+			textFieldOutput.setText(string_num);
 		}
 		else if (string_num == "")
-			textField_1.setText("0");
+			textFieldOutput.setText("0");
 		else 
-			textField_1.setText(string_num);
+			textFieldOutput.setText(string_num);
 		return string_num;
 	}
 	

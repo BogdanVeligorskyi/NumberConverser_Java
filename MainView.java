@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Window;
+
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -15,7 +17,7 @@ public class MainView {
 
 	private JFrame frame;
 	private GreetingView greetingView = null;
-	private MainView mainView = null;
+	private MainView window;
 
 	/**
 	 * Launch the application.
@@ -106,8 +108,9 @@ public class MainView {
 		btnBack.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			mainView = new MainView();
-			mainView.getFrame().setVisible(false);
+			//mainView = new MainView();
+			//setVisible(false);
+			frame.setVisible(false);
 			greetingView = new GreetingView();
 			greetingView.getFrame().setVisible(true);
 			}

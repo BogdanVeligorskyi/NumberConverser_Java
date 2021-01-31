@@ -5,10 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.awt.Window;
-
 import javax.swing.SwingConstants;
+import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -17,11 +15,7 @@ public class MainView {
 
 	private JFrame frame;
 	private GreetingView greetingView = null;
-	private MainView window;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -35,16 +29,10 @@ public class MainView {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public MainView() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setTitle("Number converter");
@@ -108,8 +96,6 @@ public class MainView {
 		btnBack.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			//mainView = new MainView();
-			//setVisible(false);
 			frame.setVisible(false);
 			greetingView = new GreetingView();
 			greetingView.getFrame().setVisible(true);

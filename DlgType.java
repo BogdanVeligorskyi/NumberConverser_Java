@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Font;
 
 public abstract class DlgType extends JDialog {
 
@@ -33,12 +34,14 @@ public abstract class DlgType extends JDialog {
 		}
 		{
 			textFieldInput = new JTextField();
+			textFieldInput.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			textFieldInput.setBounds(12, 24, 408, 45);
 			contentPanel.add(textFieldInput);
 			textFieldInput.setColumns(10);
 		}
 		{
 			textFieldOutput = new JTextField();
+			textFieldOutput.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			textFieldOutput.setColumns(10);
 			textFieldOutput.setBounds(12, 144, 408, 45);
 			contentPanel.add(textFieldOutput);
@@ -55,5 +58,5 @@ public abstract class DlgType extends JDialog {
 		}
 	}
 	
-	public abstract String converter();
+	public abstract String converter() throws Exception;
 }

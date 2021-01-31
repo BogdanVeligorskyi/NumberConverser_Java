@@ -1,15 +1,11 @@
 package calculator;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
+import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,9 +14,6 @@ public class Dlg2to10 extends DlgType {
 
 	private final JPanel contentPanel = super.contentPanel;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		try {
 			Dlg2to10 dialog = new Dlg2to10();
@@ -31,20 +24,14 @@ public class Dlg2to10 extends DlgType {
 		}
 	}
 
-	/**
-	 * Create the dialog.
-	 */
 	public Dlg2to10() {
 		btnConvert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			try {
-				converter();
-			} catch (Exception e1) {
-				JOptionPane.showMessageDialog( null, 
-						e1.getMessage(), "Input", 
-						JOptionPane.ERROR_MESSAGE);
-
-			}
+				try {
+					converter();
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage(), "Input", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		btnConvert.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -71,9 +58,9 @@ public class Dlg2to10 extends DlgType {
 	}
 
 	@Override
-	public String converter() throws Exception{
+	public String converter() throws Exception {
 		String num_string = textFieldInput.getText();
-		String [] arr_string = num_string.split("");
+		String[] arr_string = num_string.split("");
 		for (int i = 0; i < arr_string.length; i++) {
 			System.out.println(arr_string[i]);
 			if (arr_string[i].equals("1") == false && arr_string[i].equals("0") == false)
@@ -85,7 +72,7 @@ public class Dlg2to10 extends DlgType {
 		}
 		int num = 0;
 		for (int j = 0; j < arr_num.length; j++) {
-			int product = (int) (arr_num[j] * Math.pow(2, arr_num.length -j -1));
+			int product = (int) (arr_num[j] * Math.pow(2, arr_num.length - j - 1));
 			num = num + product;
 		}
 		textFieldOutput.setText(String.valueOf(num));

@@ -1,13 +1,11 @@
 package calculator;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -16,9 +14,6 @@ public class Dlg10to16 extends DlgType {
 
 	private final JPanel contentPanel = super.contentPanel;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		try {
 			Dlg10to16 dialog = new Dlg10to16();
@@ -29,13 +24,14 @@ public class Dlg10to16 extends DlgType {
 		}
 	}
 
-	/**
-	 * Create the dialog.
-	 */
 	public Dlg10to16() {
 		btnConvert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				converter();
+				try {
+					converter();
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage(), "Input", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		btnConvert.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -62,7 +58,13 @@ public class Dlg10to16 extends DlgType {
 	}
 
 	@Override
-	public String converter() {
+	public String converter() throws Exception {
+		String string_check = textFieldInput.getText();
+		String[] chars_check = string_check.split(""); 
+		for (int i = 0; i < chars_check.length; i++) {
+			if (Character.isDigit(string_check.charAt(i)) == false && chars_check[i].equals("-") == false)
+				throw new Exception("Incorrect input data!");
+		}
 		int num = Integer.valueOf(textFieldInput.getText());
 		String string_num = "";
 		while (num > 0) {

@@ -8,6 +8,8 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -35,7 +37,14 @@ public class Dlg2to10 extends DlgType {
 	public Dlg2to10() {
 		btnConvert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			converter();
+			try {
+				converter();
+			} catch (Exception e1) {
+				JOptionPane.showMessageDialog( null, 
+						e1.getMessage(), "Input", 
+						JOptionPane.ERROR_MESSAGE);
+
+			}
 			}
 		});
 		btnConvert.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -62,9 +71,14 @@ public class Dlg2to10 extends DlgType {
 	}
 
 	@Override
-	public String converter() {
+	public String converter() throws Exception{
 		String num_string = textFieldInput.getText();
 		String [] arr_string = num_string.split("");
+		for (int i = 0; i < arr_string.length; i++) {
+			System.out.println(arr_string[i]);
+			if (arr_string[i].equals("1") == false && arr_string[i].equals("0") == false)
+				throw new Exception("Incorrect input data!");
+		}
 		Integer[] arr_num = new Integer[num_string.length()];
 		for (int i = 0; i < arr_num.length; i++) {
 			arr_num[i] = Integer.parseInt(arr_string[i]);

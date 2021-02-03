@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+// class, which converts 2x number to 10x
 public class Dlg2to10 extends DlgType {
 
 	private final JPanel contentPanel = super.contentPanel;
@@ -57,6 +58,7 @@ public class Dlg2to10 extends DlgType {
 		}
 	}
 
+	// converter for positive numbers and "0"
 	@Override
 	public String converter() throws Exception {
 		String num_string = textFieldInput.getText();

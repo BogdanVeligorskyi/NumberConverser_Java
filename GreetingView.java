@@ -15,7 +15,7 @@ import java.awt.Color;
 public class GreetingView {
 
 	private JFrame frame;
-	
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -41,14 +41,14 @@ public class GreetingView {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel lblMain = new JLabel("Number converter from one system to another");
 		lblMain.setForeground(Color.BLUE);
 		lblMain.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMain.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblMain.setBounds(12, 38, 408, 57);
 		frame.getContentPane().add(lblMain);
-		
+
 		JButton btnStart = new JButton("Start");
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -60,14 +60,14 @@ public class GreetingView {
 		btnStart.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnStart.setBounds(151, 121, 137, 25);
 		frame.getContentPane().add(btnStart);
-		
+
 		JLabel lblAuthor = new JLabel("2021. Bogdan Veligorskyi");
 		lblAuthor.setHorizontalAlignment(SwingConstants.CENTER);
 		lblAuthor.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblAuthor.setBounds(12, 184, 408, 33);
 		frame.getContentPane().add(lblAuthor);
 	}
-	
+
 	public JFrame getFrame() {
 		return frame;
 	}

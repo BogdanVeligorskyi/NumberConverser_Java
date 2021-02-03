@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+// class, which converts 10x number to 8x
 public class Dlg10to8 extends DlgType {
 
 	private final JPanel contentPanel = super.contentPanel;
@@ -27,11 +28,11 @@ public class Dlg10to8 extends DlgType {
 	public Dlg10to8() {
 		btnConvert.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			try {
-				converter();
-			} catch (Exception e1) {
-				JOptionPane.showMessageDialog(null, e1.getMessage(), "Input", JOptionPane.ERROR_MESSAGE);				
-			}
+				try {
+					converter();
+				} catch (Exception e1) {
+					JOptionPane.showMessageDialog(null, e1.getMessage(), "Input", JOptionPane.ERROR_MESSAGE);
+				}
 			}
 		});
 		btnConvert.setFont(new Font("Tahoma", Font.BOLD, 13));
@@ -57,10 +58,11 @@ public class Dlg10to8 extends DlgType {
 		}
 	}
 
+	// converter for positive numbers and "0"
 	@Override
 	public String converter() throws Exception {
 		String string_check = textFieldInput.getText();
-		String[] chars_check = string_check.split(""); 
+		String[] chars_check = string_check.split("");
 		for (int i = 0; i < chars_check.length; i++) {
 			if (Character.isDigit(string_check.charAt(i)) == false && chars_check[i].equals("-") == false)
 				throw new Exception("Incorrect input data!");
@@ -68,7 +70,7 @@ public class Dlg10to8 extends DlgType {
 		int num = Integer.valueOf(textFieldInput.getText());
 		String string_num = "";
 		while (num > 0) {
-			int bit = num %8;
+			int bit = num % 8;
 			num /= 8;
 			string_num = String.valueOf(bit) + string_num;
 		}
@@ -82,6 +84,7 @@ public class Dlg10to8 extends DlgType {
 		return string_num;
 	}
 
+	// converter for negative numbers
 	private String converterMinus(int num) {
 		String string_num = "";
 		double log = (Math.log10(Math.abs(num)) / Math.log10(8.0));
@@ -94,7 +97,7 @@ public class Dlg10to8 extends DlgType {
 			string_num = bit_string + string_num;
 		}
 		string_num = "7" + string_num;
-		return string_num;	
+		return string_num;
 	}
 
 }

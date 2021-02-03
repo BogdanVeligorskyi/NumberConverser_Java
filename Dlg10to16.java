@@ -10,6 +10,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+// class, which converts 10x number to 16x
 public class Dlg10to16 extends DlgType {
 
 	private final JPanel contentPanel = super.contentPanel;
@@ -57,10 +58,11 @@ public class Dlg10to16 extends DlgType {
 		}
 	}
 
+	// converter for positive numbers and "0"
 	@Override
 	public String converter() throws Exception {
 		String string_check = textFieldInput.getText();
-		String[] chars_check = string_check.split(""); 
+		String[] chars_check = string_check.split("");
 		for (int i = 0; i < chars_check.length; i++) {
 			if (Character.isDigit(string_check.charAt(i)) == false && chars_check[i].equals("-") == false)
 				throw new Exception("Incorrect input data!");
@@ -72,17 +74,23 @@ public class Dlg10to16 extends DlgType {
 			String bit_string = String.valueOf(bit);
 			num /= 16;
 			switch (bit) {
-				case 10: bit_string = "A";
+			case 10:
+				bit_string = "A";
 				break;
-				case 11: bit_string = "B";
+			case 11:
+				bit_string = "B";
 				break;
-				case 12: bit_string = "C";
+			case 12:
+				bit_string = "C";
 				break;
-				case 13: bit_string = "D";
+			case 13:
+				bit_string = "D";
 				break;
-				case 14: bit_string = "E";
+			case 14:
+				bit_string = "E";
 				break;
-				case 15: bit_string = "F";
+			case 15:
+				bit_string = "F";
 				break;
 			}
 			string_num = bit_string + string_num;
@@ -97,6 +105,7 @@ public class Dlg10to16 extends DlgType {
 		return string_num;
 	}
 
+	// converter for negative numbers
 	private String converterMinus(int num) {
 		String string_num = "";
 		double log = (Math.log10(Math.abs(num)) / Math.log10(16.0));
@@ -107,23 +116,29 @@ public class Dlg10to16 extends DlgType {
 			String bit_string = String.valueOf(bit);
 			num10th /= 16;
 			switch (bit) {
-				case 10: bit_string = "A";
+			case 10:
+				bit_string = "A";
 				break;
-				case 11: bit_string = "B";
+			case 11:
+				bit_string = "B";
 				break;
-				case 12: bit_string = "C";
+			case 12:
+				bit_string = "C";
 				break;
-				case 13: bit_string = "D";
+			case 13:
+				bit_string = "D";
 				break;
-				case 14: bit_string = "E";
+			case 14:
+				bit_string = "E";
 				break;
-				case 15: bit_string = "F";
+			case 15:
+				bit_string = "F";
 				break;
 			}
 			string_num = bit_string + string_num;
 		}
 		string_num = "F" + string_num;
-		return string_num;	
+		return string_num;
 	}
 
 }

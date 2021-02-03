@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
 
+// class, which defines types and elements of operations` windows
 public abstract class DlgType extends JDialog {
 
 	protected final JPanel contentPanel = new JPanel();
@@ -18,7 +19,7 @@ public abstract class DlgType extends JDialog {
 	protected JTextField textFieldOutput;
 	protected JButton btnConvert = new JButton("Convert");
 	protected JButton btnOk;
-	
+
 	public DlgType() {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
@@ -55,6 +56,6 @@ public abstract class DlgType extends JDialog {
 			contentPanel.add(btnOk);
 		}
 	}
-	
+
 	public abstract String converter() throws Exception;
 }

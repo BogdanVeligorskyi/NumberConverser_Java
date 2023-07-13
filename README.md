@@ -6,5 +6,4 @@ This is one of my Java projects. Main function of it is conversing numbers from 
 Application uses GUI based on Swing library. 
 ATTENTION: in created JAR-file package was changed from "calculator" to "converter".
 
-In order to run application you have to create Eclipse project, add all files from here respectively to their packages and create JAR-file. 
-After that start the latest file with the use of JRE. 
+In order to run application you have to download Number Converter.jar and start it (at least JRE is needed). 

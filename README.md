@@ -1,9 +1,31 @@
-# NumberConverser_Java
+# Number Converser (Java)
 
-In the process of development Java, Eclipse IDE and Swing library were used.
+![alt text](https://github.com/BogdanVeligorskyi/NumberConverser_Java/blob/main/screens/screen_1.png?raw=true)
+![alt text](https://github.com/BogdanVeligorskyi/NumberConverser_Java/blob/main/screens/screen_2.png?raw=true)
+![alt text](https://github.com/BogdanVeligorskyi/NumberConverser_Java/blob/main/screens/screen_3.png?raw=true)
+![alt text](https://github.com/BogdanVeligorskyi/NumberConverser_Java/blob/main/screens/screen_4.png?raw=true)
 
-This is one of my Java projects. Main function of it is conversing numbers from one system to another (for example, from 10x to 2x). 
-Application uses GUI based on Swing library. 
-ATTENTION: in created JAR-file package was changed from "calculator" to "converter".
+This is one of my Java projects. Main function of it is conversing numbers from one numeric system to another.
 
-In order to run application you have to download Number Converter.jar and start it (at least JRE is needed). 
+## Features
+
+1. Conversion from 10x to 2x.
+2. Conversion from 10x to 8x.
+3. Conversion from 10x to 16x.
+4. Conversion from 2x to 10x.
+
+## Available languages
+
+English
+
+## Used technologies
+
+Java 8, Eclipse IDE (2020-06), Swing graphics library.
+
+## How to run application
+
+In order to run this application, you need to download all the source code in your project or just download JAR-file and run it (in the last case at least JRE is needed). 
+
+## Demonstrational video
+
+[YouTube](https://youtu.be/wN5RhWkdMeU?si=tW7Lr9VIVvO2U9C9)
